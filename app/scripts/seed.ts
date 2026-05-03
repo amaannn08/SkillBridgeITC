@@ -9,11 +9,11 @@ async function main() {
 
   // 1. Seed Company
   const company = await Company.findOneAndUpdate(
-    { emailDomain: 'techcorp.com' },
+    { emailDomain: 'test.com' },
     {
       $set: {
-        name: 'TechCorp Industries',
-        emailDomain: 'techcorp.com',
+        name: 'Demo Company Ltd',
+        emailDomain: 'test.com',
         sector: 'Information Technology',
         cin: 'L12345MH2024PTC123456',
         gstNumber: '27AABCU9603R1Z2',
@@ -25,15 +25,15 @@ async function main() {
 
   // 2. Seed Institution
   const institution = await Institution.findOneAndUpdate(
-    { aicteCode: 'GP1234' },
+    { aicteCode: 'TEST1234' },
     {
       $set: {
-        name: 'Government Polytechnic Institute',
+        name: 'Demo Polytechnic Institute',
         type: 'Polytechnic',
-        aicteCode: 'GP1234',
+        aicteCode: 'TEST1234',
         state: 'Telangana',
         district: 'Hyderabad',
-        website: 'https://skillbridge.edu',
+        website: 'https://test.com',
       }
     },
     { upsert: true, returnDocument: 'after' }
@@ -42,21 +42,21 @@ async function main() {
   // 3. Seed Users
   const users = [
     {
-      email: (process.env.ADMIN_EMAIL || 'admin@skillbridge.gov.in').toLowerCase(),
-      name: 'Platform Administrator',
+      email: 'admin@test.com',
+      name: 'Super Admin',
       role: 'super_admin',
       approvalStatus: 'approved',
     },
     {
-      email: 'recruiter@techcorp.com',
-      name: 'TechCorp Recruiter',
+      email: 'req@test.com',
+      name: 'Demo Recruiter',
       role: 'recruiter',
       companyId: company?._id,
       approvalStatus: 'approved',
     },
     {
-      email: 'coordinator@skillbridge.edu',
-      name: 'Institute Coordinator',
+      email: 'coord@test.com',
+      name: 'Demo Coordinator',
       role: 'coordinator',
       institutionId: institution?._id,
       approvalStatus: 'approved',

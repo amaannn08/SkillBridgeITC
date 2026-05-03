@@ -42,24 +42,37 @@ function LoginInner() {
         </button>
 
         {devAuth && (
-          <details style={{ borderTop: '1px solid var(--border)', paddingTop: 20, marginTop: 4 }}>
-            <summary style={{ fontSize: '0.78rem', color: 'var(--text-muted)', cursor: 'pointer', marginBottom: 12 }}>🛠 Dev sign-in (local only)</summary>
-            <form onSubmit={(e) => { e.preventDefault(); signIn('dev-credentials', { email, callbackUrl: '/api/auth/redirect', redirect: true }); }}>
-              <div className="form-group" style={{ marginBottom: 10 }}>
-                <label className="form-label">Seeded email</label>
-                <input
-                  className="form-input"
-                  placeholder="admin@skillbridge.gov.in"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                />
-              </div>
-              <button type="submit" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
-                Sign in without password
+          <div style={{ borderTop: '1px solid var(--border)', paddingTop: 20, marginTop: 4 }}>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: 12, textAlign: 'center', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              🛠 1-Click Demo Logins
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <button 
+                type="button" 
+                className="btn btn-secondary" 
+                style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => signIn('dev-credentials', { email: 'admin@test.com', callbackUrl: '/api/auth/redirect', redirect: true })}
+              >
+                🔐 Login as Super Admin
               </button>
-            </form>
-          </details>
+              <button 
+                type="button" 
+                className="btn btn-secondary" 
+                style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => signIn('dev-credentials', { email: 'req@test.com', callbackUrl: '/api/auth/redirect', redirect: true })}
+              >
+                🏢 Login as Recruiter
+              </button>
+              <button 
+                type="button" 
+                className="btn btn-secondary" 
+                style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => signIn('dev-credentials', { email: 'coord@test.com', callbackUrl: '/api/auth/redirect', redirect: true })}
+              >
+                🏛️ Login as Coordinator
+              </button>
+            </div>
+          </div>
         )}
 
         <p style={{ textAlign: 'center', marginTop: 28, fontSize: '0.875rem', color: 'var(--text-muted)' }}>
