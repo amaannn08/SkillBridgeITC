@@ -30,6 +30,9 @@ export const authConfig: NextAuthConfig = {
         path.startsWith('/api/auth') ||
         path === '/api/register' ||
         path === '/api/platform-stats' ||
+        path === '/api/statistics' ||
+        path === '/api/vacancies' ||
+        path === '/api/map' ||
         path.startsWith('/api/cron');
       if (isPublic) return true;
 

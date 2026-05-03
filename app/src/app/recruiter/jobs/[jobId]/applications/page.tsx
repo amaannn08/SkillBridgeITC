@@ -82,12 +82,9 @@ export default function JobApplicationsPage() {
   async function downloadZIP(appId: string, filter: 'all' | 'shortlisted') {
     setDownloading(`${appId}:${filter}`);
     try {
-      const res = await fetch(`/api/applications/${appId}/download?filter=${filter}`);
-      const j = await res.json();
-      if (!res.ok || !j.url) throw new Error(j.error || 'No download URL');
-      window.open(j.url, '_blank');
-    } catch {
-      toast.error('Download failed');
+      // API streams a zip directly — open in new tab to trigger browser download
+      const url = `/api/applications/${appId}/download?filter=${filter}`;
+      window.open(url, '_blank');
     } finally {
       setDownloading(null);
     }

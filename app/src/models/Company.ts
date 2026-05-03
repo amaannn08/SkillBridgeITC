@@ -6,6 +6,8 @@ export interface ICompany extends Document {
   website?: string;
   sector?: string;
   address?: string;
+  cin?: string;
+  gstNumber?: string;
   verifiedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -18,6 +20,8 @@ const CompanySchema = new Schema<ICompany>(
     website: { type: String },
     sector: { type: String },
     address: { type: String },
+    cin: { type: String },
+    gstNumber: { type: String },
     verifiedAt: { type: Date },
   },
   { timestamps: true, strict: true }
@@ -26,3 +30,4 @@ const CompanySchema = new Schema<ICompany>(
 CompanySchema.index({ emailDomain: 1 }, { unique: true });
 
 export const Company = models.Company || model<ICompany>('Company', CompanySchema);
+

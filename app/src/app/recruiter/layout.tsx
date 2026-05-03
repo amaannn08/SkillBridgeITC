@@ -6,6 +6,7 @@ const nav = [
   { href: '/recruiter/dashboard', label: 'Dashboard', icon: '📊' },
   { href: '/recruiter/jobs', label: 'Job Requirements', icon: '📋' },
   { href: '/recruiter/jobs/new', label: 'Post New Job', icon: '➕' },
+  { href: '/recruiter/company', label: 'Company Profile', icon: '🏭' },
 ];
 
 export default async function RecruiterLayout({ children }: { children: React.ReactNode }) {

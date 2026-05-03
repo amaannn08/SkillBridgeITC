@@ -7,6 +7,7 @@ const nav = [
   { href: '/coordinator/jobs', label: 'Browse Jobs', icon: '🔍' },
   { href: '/coordinator/applications', label: 'My Applications', icon: '📋' },
   { href: '/coordinator/batches', label: 'Talent Batches', icon: '👥' },
+  { href: '/coordinator/feedback', label: 'Feedback', icon: '💬' },
   { href: '/coordinator/institution', label: 'Institution Profile', icon: '🏛️' },
 ];
 
