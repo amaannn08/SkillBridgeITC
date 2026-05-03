@@ -1,14 +1,12 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI!;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable');
-}
+/** Empty until you set `MONGODB_URI` in the host (e.g. Vercel env). Build can succeed without it; DB routes need the real URI at runtime. */
+const MONGODB_URI = process.env.MONGODB_URI ?? '';
 
 interface MongooseCache {
   conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
+  /** Resolves to mongoose on success, or `null` if connect failed (see `.catch` below). */
+  promise: Promise<typeof mongoose | null> | null;
 }
 
 declare global {
@@ -21,22 +19,20 @@ if (!global.mongoose) {
   global.mongoose = cached;
 }
 
-async function connectDB() {
+async function connectDB(): Promise<typeof mongoose | null> {
   if (process.env.DUMMY_MODE === 'true' || !MONGODB_URI) {
-    console.warn('⚠️ Running in DUMMY MODE — No MongoDB connection');
+    console.warn('⚠️ No MongoDB URI — running without DB (set MONGODB_URI for production)');
     return null;
   }
 
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false,
-    }).catch(err => {
-      console.error('❌ MongoDB Connection Error:', err.message);
-      console.warn('⚠️ Falling back to DUMMY MODE');
+    cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false }).catch((err) => {
+      console.error('❌ MongoDB Connection Error:', err instanceof Error ? err.message : err);
+      console.warn('⚠️ Connection failed — requests using the DB will error until MONGODB_URI is valid');
       return null;
-    }) as Promise<typeof mongoose | null>;
+    });
   }
 
   cached.conn = await cached.promise;
