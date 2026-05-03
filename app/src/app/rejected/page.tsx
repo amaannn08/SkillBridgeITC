@@ -1,26 +1,48 @@
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
-import connectDB from '@/lib/db';
-import { User } from '@/models/User';
 
 export default async function RejectedPage() {
   const session = await auth();
-  let reason: string | undefined;
-  if (session?.user?.email) {
-    await connectDB();
-    const u = await User.findOne({ email: session.user.email.toLowerCase() }).lean();
-    reason = u?.rejectionReason;
-  }
+  const reason = (session?.user as { rejectionReason?: string })?.rejectionReason;
 
   return (
-    <div className="mx-auto max-w-md px-6 py-24 text-center">
-      <h1 className="mb-4 text-2xl font-bold">Account not active</h1>
-      <p className="mb-4 text-[var(--text-secondary)]">
-        Your account is rejected or suspended. {reason ? `Note: ${reason}` : 'Contact the platform administrator.'}
-      </p>
-      <Link href="/login" className="text-sm font-semibold text-[#2563EB]">
-        Back to sign in
-      </Link>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24, background: 'var(--bg-base)' }}>
+      <div className="fade-in" style={{ maxWidth: 520, width: '100%', textAlign: 'center' }}>
+        <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>🚫</div>
+        <h1 style={{ fontFamily: 'var(--font-plus-jakarta),sans-serif', fontSize: '1.75rem', fontWeight: 800, marginBottom: 12 }}>
+          Access Not Granted
+        </h1>
+        <p style={{ color: 'var(--text-muted)', marginBottom: 28, lineHeight: 1.7 }}>
+          {session?.user?.approvalStatus === 'suspended'
+            ? 'Your account has been suspended by the platform administrator. Please contact support if you believe this is an error.'
+            : 'Your registration request was not approved. Please review the reason below and contact support if needed.'
+          }
+        </p>
+
+        {reason && (
+          <div className="alert alert-danger" style={{ textAlign: 'left', marginBottom: 24 }}>
+            <span>ℹ️</span>
+            <div>
+              <strong style={{ display: 'block', marginBottom: 4 }}>Reason provided by Admin:</strong>
+              {reason}
+            </div>
+          </div>
+        )}
+
+        <div className="card" style={{ padding: '20px', marginBottom: 24, textAlign: 'left' }}>
+          <div style={{ fontWeight: 700, marginBottom: 12 }}>What can you do?</div>
+          <ul style={{ paddingLeft: 18, lineHeight: 2, color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+            <li>Review the rejection reason above carefully</li>
+            <li>Correct any errors and re-register with accurate information</li>
+            <li>Contact <a href="mailto:support@skillbridge.gov.in" style={{ color: 'var(--primary-light)' }}>support@skillbridge.gov.in</a> for assistance</li>
+          </ul>
+        </div>
+
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link href="/register" className="btn btn-primary">Re-register</Link>
+          <Link href="/login" className="btn btn-secondary">Back to Sign In</Link>
+        </div>
+      </div>
     </div>
   );
 }

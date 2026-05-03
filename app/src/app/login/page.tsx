@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-[var(--text-muted)]">Loading…</div>}>
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center" style={{ color: 'var(--text-muted)' }}>Loading…</div>}>
       <LoginInner />
     </Suspense>
   );
@@ -14,49 +14,57 @@ export default function LoginPage() {
 
 function LoginInner() {
   const [email, setEmail] = useState('');
+  const [signingIn, setSigningIn] = useState(false);
   const devAuth = process.env.NODE_ENV === 'development';
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6" style={{ background: 'var(--bg-base)' }}>
-      <div className="glass fade-in w-full max-w-md rounded-[var(--radius-xl)] p-10">
-        <h1 className="mb-2 text-center font-[family-name:var(--font)] text-2xl font-bold">SkillBridge</h1>
-        <p className="mb-8 text-center text-sm text-[var(--text-muted)]">Sign in with Google (required for production)</p>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37,99,235,0.12) 0%, transparent 60%)' }}>
+      <div className="glass fade-in" style={{ width: '100%', maxWidth: 420, borderRadius: 'var(--radius-xl)', padding: '40px 36px' }}>
+        {/* Brand */}
+        <div style={{ textAlign: 'center', marginBottom: 32 }}>
+          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'var(--grad-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', margin: '0 auto 14px', boxShadow: 'var(--shadow-glow)' }}>⚡</div>
+          <h1 style={{ fontFamily: 'var(--font-plus-jakarta),sans-serif', fontSize: '1.5rem', fontWeight: 800, marginBottom: 6 }}>SkillBridge</h1>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Government Placement Coordination Portal</p>
+        </div>
 
         <button
           type="button"
-          className="btn btn-primary mb-6 w-full justify-center py-3"
-          onClick={() => signIn('google', { callbackUrl: '/' })}
+          className="btn btn-primary"
+          style={{ width: '100%', justifyContent: 'center', padding: '13px', fontSize: '0.9375rem', marginBottom: 16 }}
+          onClick={() => { setSigningIn(true); signIn('google', { callbackUrl: '/' }); }}
+          disabled={signingIn}
         >
+          {signingIn ? <span className="spin" style={{ display: 'inline-block', fontSize: '0.9rem' }}>⟳</span> : ''}
+          <svg width="18" height="18" viewBox="0 0 48 48" fill="none" style={{ flexShrink: 0 }}>
+            <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.4-.1-2.7-.5-4z" fill="#fff" opacity=".9"/>
+          </svg>
           Continue with Google
         </button>
 
         {devAuth && (
-          <form
-            className="border-t border-[var(--border)] pt-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              signIn('dev-credentials', { email, callbackUrl: '/', redirect: true });
-            }}
-          >
-            <p className="mb-3 text-xs text-[var(--text-muted)]">Dev only — seed admin then enter email</p>
-            <input
-              className="form-input mb-3 w-full"
-              placeholder="admin@skillbridge.gov.in"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-            />
-            <button type="submit" className="btn btn-secondary w-full justify-center py-2 text-sm">
-              Dev sign-in (no password)
-            </button>
-          </form>
+          <details style={{ borderTop: '1px solid var(--border)', paddingTop: 20, marginTop: 4 }}>
+            <summary style={{ fontSize: '0.78rem', color: 'var(--text-muted)', cursor: 'pointer', marginBottom: 12 }}>🛠 Dev sign-in (local only)</summary>
+            <form onSubmit={(e) => { e.preventDefault(); signIn('dev-credentials', { email, callbackUrl: '/', redirect: true }); }}>
+              <div className="form-group" style={{ marginBottom: 10 }}>
+                <label className="form-label">Seeded email</label>
+                <input
+                  className="form-input"
+                  placeholder="admin@skillbridge.gov.in"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                />
+              </div>
+              <button type="submit" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+                Sign in without password
+              </button>
+            </form>
+          </details>
         )}
 
-        <p className="mt-8 text-center text-sm text-[var(--text-muted)]">
-          Need an account?{' '}
-          <Link href="/register" className="font-semibold text-[var(--primary-light)]">
-            Register
-          </Link>
+        <p style={{ textAlign: 'center', marginTop: 28, fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+          Don&apos;t have an account?{' '}
+          <Link href="/register" style={{ color: 'var(--primary-light)', fontWeight: 600, textDecoration: 'none' }}>Register here</Link>
         </p>
       </div>
     </div>

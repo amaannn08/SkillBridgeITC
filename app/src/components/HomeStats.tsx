@@ -22,15 +22,19 @@ export async function HomeStats() {
   }
 
   return (
-    <div className="mx-auto mt-16 flex max-w-2xl flex-wrap justify-center gap-10 border-t border-[var(--border)] pt-12">
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 40, maxWidth: 640, margin: '48px auto 0', paddingTop: 40, borderTop: '1px solid var(--border)' }}>
       {[
         { value: totalInstitutions, label: 'Institutions' },
         { value: totalCompanies, label: 'Companies' },
-        { value: placementsFacilitated, label: 'Placements tracked' },
+        { value: placementsFacilitated, label: 'Placements Tracked' },
       ].map((x) => (
-        <div key={x.label} className="text-center">
-          <div className="text-2xl font-extrabold text-sky-400">{x.value}</div>
-          <div className="text-xs text-[var(--text-muted)]">{x.label}</div>
+        <div key={x.label} style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '2.25rem', fontWeight: 800, color: '#60a5fa', fontFamily: 'var(--font-plus-jakarta),sans-serif' }}>
+            {x.value.toLocaleString('en-IN')}
+          </div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 4, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {x.label}
+          </div>
         </div>
       ))}
     </div>

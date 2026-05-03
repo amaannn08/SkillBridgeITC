@@ -8,25 +8,28 @@ import { TalentPoolBatch, type IEmbeddedStudent } from '@/models/TalentPoolBatch
 import { User } from '@/models/User';
 import { notifyUser } from '@/lib/notify';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   const session = await auth();
   const gate = await requireApprovedSession(session);
   if (gate.error) return gate.error;
   const user = gate.user!;
+  const jobId = req.nextUrl.searchParams.get('jobId');
 
   await connectDB();
   if (user.role === 'coordinator') {
     const apps = await Application.find({ coordinatorId: user._id })
       .populate('jobRequirementId')
-      .populate('talentPoolBatchId')
+      .populate({ path: 'talentPoolBatchId', populate: { path: 'institutionId', select: 'name state' } })
       .sort({ submittedAt: -1 })
       .lean();
     return NextResponse.json({ success: true, data: apps });
   }
   if (user.role === 'recruiter' && user.companyId) {
-    const apps = await Application.find({ companyId: user.companyId })
+    const filter: Record<string, unknown> = { companyId: user.companyId };
+    if (jobId) filter.jobRequirementId = jobId;
+    const apps = await Application.find(filter)
       .populate('jobRequirementId')
-      .populate('talentPoolBatchId')
+      .populate({ path: 'talentPoolBatchId', populate: { path: 'institutionId', select: 'name state' } })
       .populate('coordinatorId', 'name email')
       .sort({ submittedAt: -1 })
       .lean();
