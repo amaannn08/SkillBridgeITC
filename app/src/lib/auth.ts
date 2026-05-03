@@ -92,7 +92,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     ...authConfig.callbacks,
     async jwt({ token, user, account, profile, trigger }) {
       // Credentials (dev)
-      if (account?.provider === 'credentials' && user) {
+      if (account?.provider === 'dev-credentials' && user) {
         token.needsRegistration = false;
         token.sub = user.id;
         token.role = (user as { role: IUser['role'] }).role;
