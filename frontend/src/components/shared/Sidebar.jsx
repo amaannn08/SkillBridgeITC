@@ -3,17 +3,19 @@ import { motion } from 'framer-motion';
 import {
   LayoutDashboard, CheckSquare, Users, Briefcase, BarChart3,
   Building2, FileText, Bell, ChevronLeft, ChevronRight,
-  ClipboardList, Upload, X, User,
+  ClipboardList, Upload, X, User, MapPin, ShieldCheck,
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 const NAV = {
   super_admin: [
     { label: 'Dashboard',         icon: LayoutDashboard, to: '/admin'            },
+    { label: 'District Map',      icon: MapPin,          to: '/admin/map'        },
     { label: 'Pending Approvals', icon: CheckSquare,     to: '/admin/approvals', badge: true },
     { label: 'All Users',         icon: Users,           to: '/admin/users'      },
     { label: 'Job Requirements',  icon: Briefcase,       to: '/admin/jobs'       },
     { label: 'Analytics',         icon: BarChart3,       to: '/admin/analytics'  },
+    { label: 'Audit Trail',       icon: ShieldCheck,     to: '/admin/audit'      },
   ],
   coordinator: [
     { label: 'Dashboard',          icon: LayoutDashboard, to: '/coordinator'               },
@@ -62,17 +64,14 @@ export default function Sidebar({ collapsed, setCollapsed }) {
 
       <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''} ${sidebarOpen ? 'open' : ''}`}>
         {/* Logo */}
-        <div className="flex items-center gap-3 px-4 py-5 border-b border-white/10">
-          <div className="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-white text-sm">
-            SB
-          </div>
+        <div className="flex items-center gap-3 px-4 py-4 border-b border-white/10">
+          {collapsed
+            ? <img src="/logo.png" alt="SkillBridge" style={{ width: 36, height: 36, objectFit: 'contain', flexShrink: 0 }} />
+            : <img src="/logo.png" alt="SkillBridge" style={{ height: 36, maxWidth: 160, objectFit: 'contain', flexShrink: 0 }} />
+          }
           {!collapsed && (
-            <div className="animate-fade-in">
-              <p className="font-bold text-white text-sm leading-tight">SkillBridge</p>
-              <p className="text-blue-300 text-xs">{roleLabel} Portal</p>
-            </div>
+            <p className="text-blue-300 text-xs animate-fade-in">{roleLabel} Portal</p>
           )}
-          {/* Close on mobile */}
           <button
             onClick={() => setSidebarOpen(false)}
             className="ml-auto text-white/60 hover:text-white md:hidden"

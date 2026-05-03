@@ -1,0 +1,33 @@
+<svg width="100%" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">SkillBridge logo</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Professional logo for SkillBridge — a geometric monogram mark with wordmark and tagline</desc>
+
+  <defs>
+    
+  </defs>
+
+  <!-- ===== ICON MARK — centered at 340, vertically around 120 ===== -->
+  <!-- Abstract "SB" mark: two interlocking arrow-chevrons forming a bridge/connection shape -->
+
+  <!-- Left chevron block — represents skill/student -->
+  <polygon points="255,90 285,90 310,130 285,170 255,170 280,130" fill="#1B4FD8" style="fill:rgb(27, 79, 216);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Right chevron block — represents bridge/job -->
+  <polygon points="315,90 370,90 395,130 370,170 315,170 340,130" fill="#0EA472" style="fill:rgb(14, 164, 114);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Connector notch overlap (interlocking feel) -->
+  <polygon points="310,130 315,90 315,170" fill="#0D3BB0" style="fill:rgb(13, 59, 176);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <!-- "skill" in dark navy -->
+  <text x="214" y="222" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="#0F1F5C" letter-spacing="-1" style="fill:rgb(15, 31, 92);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Inter, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:42px;font-weight:700;text-anchor:start;dominant-baseline:auto">skill</text>
+
+  <!-- "bridge" in green -->
+  <text x="330" y="222" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="#0EA472" letter-spacing="-1" style="fill:rgb(14, 164, 114);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Inter, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:42px;font-weight:700;text-anchor:start;dominant-baseline:auto">bridge</text>
+
+  <!-- Thin rule under wordmark -->
+  <rect x="214" y="232" width="266" height="2" rx="1" fill="#1B4FD8" opacity="0.15" style="fill:rgb(27, 79, 216);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tagline -->
+  <text x="340" y="265" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B7280" text-anchor="middle" letter-spacing="3" style="fill:rgb(107, 114, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Inter, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">FROM CAMPUS TO CAREER</text>
+</svg>

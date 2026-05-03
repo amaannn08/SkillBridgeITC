@@ -27,8 +27,8 @@ export default function AdminDashboard() {
   return (
     <div className="animate-fade-in">
       <div className="page-header">
-        <h1 className="page-title">Admin Dashboard</h1>
-        <p className="page-subtitle">Platform-wide overview and quick actions</p>
+        <h1 className="page-title">Government Dashboard — Medak District</h1>
+        <p className="page-subtitle">Employment & placement overview · Telangana</p>
       </div>
 
       {/* Stats */}

@@ -72,8 +72,7 @@ export default function Landing() {
       <nav style={{ ...NAV_BG, position: 'sticky', top: 0, zIndex: 50 }}
         className="px-6 lg:px-16 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div style={{ width: 32, height: 32, borderRadius: 8, background: 'linear-gradient(135deg, #2563EB, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 13, color: '#fff', letterSpacing: '-0.5px', flexShrink: 0 }}>SB</div>
-          <span style={{ color: '#fff', fontWeight: 700, fontSize: 15, letterSpacing: '-0.3px' }}>SkillBridge</span>
+          <img src="/logo.png" alt="SkillBridge" style={{ height: 32, width: 'auto', objectFit: 'contain', flexShrink: 0 }} />
           <span style={{ marginLeft: 4, fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', color: '#60a5fa', background: 'rgba(37,99,235,0.18)', padding: '2px 8px', borderRadius: 99, textTransform: 'uppercase' }}>Gov Portal</span>
         </div>
         <div className="flex items-center gap-2">
@@ -232,8 +231,7 @@ export default function Landing() {
       <footer style={{ background: '#0a1628', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '28px 24px' }}>
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <div style={{ width: 28, height: 28, borderRadius: 7, background: 'linear-gradient(135deg, #2563EB, #1d4ed8)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 11, color: '#fff' }}>SB</div>
-            <span style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 600, fontSize: 14 }}>SkillBridge</span>
+            <img src="/logo.png" alt="SkillBridge" style={{ height: 28, width: 'auto', objectFit: 'contain' }} />
           </div>
           <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: 12, textAlign: 'center' }}>
             © 2024 Ministry of Skill Development & Entrepreneurship, Government of India · v1.0 MVP

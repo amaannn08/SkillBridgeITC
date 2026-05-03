@@ -15,6 +15,8 @@ import AdminApprovals from './pages/admin/Approvals';
 import AdminUsers from './pages/admin/Users';
 import AdminAnalytics from './pages/admin/Analytics';
 import AdminJobs from './pages/admin/Jobs';
+import AdminMapDashboard from './pages/admin/MapDashboard';
+import AdminAuditTrail from './pages/admin/AuditTrail';
 
 // Coordinator pages
 import CoordDashboard from './pages/coordinator/Dashboard';
@@ -63,6 +65,8 @@ function AppRoutes() {
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/admin/jobs" element={<AdminJobs />} />
         <Route path="/admin/analytics" element={<AdminAnalytics />} />
+        <Route path="/admin/map" element={<AdminMapDashboard />} />
+        <Route path="/admin/audit" element={<AdminAuditTrail />} />
       </Route>
 
       {/* Coordinator */}
