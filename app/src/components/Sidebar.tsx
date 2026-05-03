@@ -30,7 +30,17 @@ export default function Sidebar({ title, subtitle, accentColor, items, role }: S
             ⚡
           </div>
           <div>
-            <div style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', fontWeight: 800, fontSize: '1rem', color: 'var(--text-primary)', lineHeight: 1 }}>SkillBridge</div>
+            <div
+              style={{
+                fontFamily: 'var(--font-plus-jakarta), ui-sans-serif, sans-serif',
+                fontWeight: 800,
+                fontSize: '1rem',
+                color: 'var(--text-primary)',
+                lineHeight: 1,
+              }}
+            >
+              SkillBridge
+            </div>
             <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 500 }}>Placement Portal</div>
           </div>
         </div>
