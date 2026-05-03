@@ -31,7 +31,7 @@ function LoginInner() {
           type="button"
           className="btn btn-primary"
           style={{ width: '100%', justifyContent: 'center', padding: '13px', fontSize: '0.9375rem', marginBottom: 16 }}
-          onClick={() => { setSigningIn(true); signIn('google', { callbackUrl: '/' }); }}
+          onClick={() => { setSigningIn(true); signIn('google', { callbackUrl: '/api/auth/redirect' }); }}
           disabled={signingIn}
         >
           {signingIn ? <span className="spin" style={{ display: 'inline-block', fontSize: '0.9rem' }}>⟳</span> : ''}
@@ -44,7 +44,7 @@ function LoginInner() {
         {devAuth && (
           <details style={{ borderTop: '1px solid var(--border)', paddingTop: 20, marginTop: 4 }}>
             <summary style={{ fontSize: '0.78rem', color: 'var(--text-muted)', cursor: 'pointer', marginBottom: 12 }}>🛠 Dev sign-in (local only)</summary>
-            <form onSubmit={(e) => { e.preventDefault(); signIn('dev-credentials', { email, callbackUrl: '/', redirect: true }); }}>
+            <form onSubmit={(e) => { e.preventDefault(); signIn('dev-credentials', { email, callbackUrl: '/api/auth/redirect', redirect: true }); }}>
               <div className="form-group" style={{ marginBottom: 10 }}>
                 <label className="form-label">Seeded email</label>
                 <input
