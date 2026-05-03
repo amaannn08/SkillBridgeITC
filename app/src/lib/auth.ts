@@ -15,46 +15,78 @@ const googleConfigured = !!googleClientId && !!googleClientSecret;
 /** Local dev only — no password; uses seeded user email. Do not enable in production builds. */
 const devCredentialsEnabled = process.env.NODE_ENV === 'development';
 
+/**
+ * Auth.js requires a secret to sign sessions. In production, set AUTH_SECRET (or NEXTAUTH_SECRET)
+ * in Vercel/host env — e.g. `openssl rand -base64 32`.
+ */
+const authSecret =
+  process.env.AUTH_SECRET ||
+  process.env.NEXTAUTH_SECRET ||
+  (process.env.NODE_ENV !== 'production'
+    ? 'development-only-placeholder-secret-min-32-chars!!'
+    : undefined);
+
+const googleProviders = googleConfigured
+  ? [
+      Google({
+        clientId: googleClientId!,
+        clientSecret: googleClientSecret!,
+      }),
+    ]
+  : [];
+
+const devProviders = devCredentialsEnabled
+  ? [
+      Credentials({
+        id: 'dev-credentials',
+        name: 'Development',
+        credentials: {
+          email: { label: 'Email', type: 'email' },
+        },
+        async authorize(credentials) {
+          const email = (credentials?.email as string)?.toLowerCase();
+          if (!email) return null;
+          await connectDB();
+          const u = await User.findOne({ email });
+          if (!u || u.approvalStatus !== 'approved') return null;
+          return {
+            id: u._id.toString(),
+            name: u.name,
+            email: u.email,
+            role: u.role,
+            approvalStatus: u.approvalStatus,
+            institutionId: u.institutionId?.toString(),
+            companyId: u.companyId?.toString(),
+            image: u.profileImage ?? undefined,
+          };
+        },
+      }),
+    ]
+  : [];
+
+/**
+ * Auth.js errors with "problem with the server configuration" if there are zero providers.
+ * When Google isn't configured yet (e.g. fresh Vercel deploy), keep a no-op provider so
+ * `/api/auth/session` returns 200 with no session instead of 500.
+ */
+const placeholderProviders =
+  googleProviders.length === 0 && devProviders.length === 0
+    ? [
+        Credentials({
+          id: 'oauth-not-configured',
+          name: 'OAuthNotConfigured',
+          credentials: {},
+          authorize() {
+            return null;
+          },
+        }),
+      ]
+    : [];
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
-  providers: [
-    ...(googleConfigured
-      ? [
-          Google({
-            clientId: googleClientId!,
-            clientSecret: googleClientSecret!,
-          }),
-        ]
-      : []),
-    ...(devCredentialsEnabled
-      ? [
-          Credentials({
-            id: 'dev-credentials',
-            name: 'Development',
-            credentials: {
-              email: { label: 'Email', type: 'email' },
-            },
-            async authorize(credentials) {
-              const email = (credentials?.email as string)?.toLowerCase();
-              if (!email) return null;
-              await connectDB();
-              const u = await User.findOne({ email });
-              if (!u || u.approvalStatus !== 'approved') return null;
-              return {
-                id: u._id.toString(),
-                name: u.name,
-                email: u.email,
-                role: u.role,
-                approvalStatus: u.approvalStatus,
-                institutionId: u.institutionId?.toString(),
-                companyId: u.companyId?.toString(),
-                image: u.profileImage ?? undefined,
-              };
-            },
-          }),
-        ]
-      : []),
-  ],
+  secret: authSecret,
+  providers: [...googleProviders, ...devProviders, ...placeholderProviders],
   session: { strategy: 'jwt', maxAge: 30 * 24 * 60 * 60 },
   callbacks: {
     ...authConfig.callbacks,
