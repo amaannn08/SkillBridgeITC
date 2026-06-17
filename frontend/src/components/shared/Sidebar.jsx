@@ -90,7 +90,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
         {/* Logo */}
         <div style={{ padding: '16px 16px 14px', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <MesicLogo collapsed={collapsed} />
-          <button onClick={() => setSidebarOpen(false)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer', display: 'flex' }} className="md:hidden">
+          <button onClick={() => setSidebarOpen(false)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer' }} className="md:hidden">
             <X size={18} />
           </button>
         </div>
