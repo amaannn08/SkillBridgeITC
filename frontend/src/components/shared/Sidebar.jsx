@@ -105,7 +105,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
         )}
 
         {/* Nav */}
-        <nav className="flex-1 px-2 py-3 overflow-y-auto" style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <nav className={`flex-1 px-2 py-3 ${collapsed ? 'overflow-y-hidden' : 'overflow-y-auto'}`} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {navItems.map((item) => (
             <NavLink
               key={item.to}
