@@ -23,9 +23,19 @@ export default function CoordDashboard() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header">
-        <h1 className="page-title">Welcome back, {currentUser.name.split(' ')[0]} 👋</h1>
-        <p className="page-subtitle">Here's what's happening with your talent pool</p>
+      <div style={{ marginBottom: 28 }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+          <div>
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
+              MESIC · Faculty Coordinator
+            </span>
+            <h1 className="page-title" style={{ marginTop: 8 }}>Welcome back, {currentUser.name.split(' ')[0]} 👋</h1>
+            <p className="page-subtitle">Here's what's happening with your talent pool · Medak District</p>
+          </div>
+          <button onClick={() => navigate('/coordinator/batches')} className="btn btn-primary">
+            + Create Batch
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 stagger-children">

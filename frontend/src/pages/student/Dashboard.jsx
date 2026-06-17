@@ -39,10 +39,13 @@ export default function StudentDashboard() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header">
-        <h1 className="page-title">Welcome, {currentUser.name.split(' ')[0]} 👋</h1>
+      <div style={{ marginBottom: 28 }}>
+        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
+          MESIC · Student Portal
+        </span>
+        <h1 className="page-title" style={{ marginTop: 8 }}>Welcome, {currentUser.name.split(' ')[0]} 👋</h1>
         <p className="page-subtitle">
-          {myBatch?.name} · {institution?.name}
+          {myBatch?.name} · {institution?.name} · Medak District
         </p>
       </div>
 

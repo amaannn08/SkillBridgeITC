@@ -17,14 +17,19 @@ export default function RecruiterDashboard() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header flex items-start justify-between">
-        <div>
-          <h1 className="page-title">Welcome back, {currentUser.name.split(' ')[0]} 👋</h1>
-          <p className="page-subtitle">{company?.name} · Recruiter Dashboard</p>
+      <div style={{ marginBottom: 28 }}>
+        <div className="flex items-start justify-between" style={{ flexWrap: 'wrap', gap: 12 }}>
+          <div>
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
+              MESIC · Industry Recruiter
+            </span>
+            <h1 className="page-title" style={{ marginTop: 8 }}>Welcome back, {currentUser.name.split(' ')[0]} 👋</h1>
+            <p className="page-subtitle">{company?.name} · Recruiter Dashboard · Medak District</p>
+          </div>
+          <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary">
+            <Plus size={16} /> Post New Job
+          </button>
         </div>
-        <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary">
-          <Plus size={16} /> Post New Job
-        </button>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 stagger-children">
