@@ -39,7 +39,7 @@ export default function LandingCTA() {
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}>
             Register Now <ArrowRight size={15} />
           </button>
-          <button onClick={() => navigate('/admin')}
+          <button onClick={() => navigate('/login')}
             style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontWeight: 600, fontSize: 15, padding: '13px 30px', borderRadius: 11, cursor: 'pointer', border: '1px solid rgba(255,255,255,0.16)', transition: 'background 0.15s' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}>

@@ -83,7 +83,7 @@ export default function LandingHero({ stats }) {
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(249,115,22,0.38)'; }}>
             Get Started <ArrowRight size={16} />
           </button>
-          <button onClick={() => navigate('/admin')}
+          <button onClick={() => navigate('/login')}
             style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontWeight: 600, fontSize: 15, padding: '13px 30px', borderRadius: 11, cursor: 'pointer', border: '1px solid rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', gap: 8, transition: 'background 0.18s' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}>

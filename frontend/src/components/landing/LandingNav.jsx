@@ -49,7 +49,7 @@ export default function LandingNav() {
         }}>Gov Portal</span>
 
         <button
-          onClick={() => navigate('/admin')}
+          onClick={() => navigate('/login')}
           style={{
             color: 'rgba(255,255,255,0.6)', fontSize: 13, fontWeight: 500,
             padding: '7px 16px', borderRadius: 8, background: 'transparent',

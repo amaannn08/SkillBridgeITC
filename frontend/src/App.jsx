@@ -8,6 +8,7 @@ import AuthLayout from './layouts/AuthLayout';
 import Landing from './pages/Landing';
 import Register from './pages/Register';
 import Pending from './pages/Pending';
+import Login from './pages/Login';
 
 // Admin pages
 import AdminDashboard from './pages/admin/Dashboard';
@@ -54,6 +55,7 @@ function AppRoutes() {
       {/* Public */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/pending" element={<Pending />} />
       </Route>

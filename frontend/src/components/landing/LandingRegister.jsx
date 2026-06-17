@@ -126,7 +126,7 @@ export default function LandingRegister() {
         <FadeUp delay={0.35}>
           <p style={{ textAlign: 'center', color: 'rgba(186,215,255,0.5)', fontSize: 13, marginTop: 36 }}>
             Already registered?{' '}
-            <button onClick={() => navigate('/admin')}
+            <button onClick={() => navigate('/login')}
               style={{ color: '#60a5fa', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', fontSize: 13 }}>
               Sign In to Portal <ArrowRight size={12} style={{ display: 'inline', verticalAlign: 'middle' }} />
             </button>
