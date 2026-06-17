@@ -32,14 +32,14 @@ export default function AuditTrail() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header flex items-start justify-between">
+      <div className="page-header flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <h1 className="page-title flex items-center gap-2">
             <CheckCircle size={22} className="text-green-500" /> Placement Audit Trail
           </h1>
           <p className="page-subtitle">Full record of every student placed through the portal — {MOCK_PLACED_STUDENTS.length} total</p>
         </div>
-        <button onClick={exportCSV} className="btn btn-outline btn-sm">
+        <button onClick={exportCSV} className="btn btn-outline btn-sm flex-shrink-0">
           <Download size={14} /> Export CSV
         </button>
       </div>
@@ -62,7 +62,7 @@ export default function AuditTrail() {
         </div>
 
         <div className="table-wrapper">
-          <table>
+          <table className="mobile-card-table">
             <thead>
               <tr>
                 <th>Student</th>
@@ -79,21 +79,28 @@ export default function AuditTrail() {
             <tbody>
               {filtered.map(s => (
                 <tr key={s._id}>
-                  <td className="font-semibold text-gray-800">{s.name}</td>
                   <td>
-                    <p className="text-sm text-gray-600">{s.phone}</p>
-                    <p className="text-xs text-gray-400">{s.email}</p>
+                    <p className="font-semibold text-gray-800">{s.name}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{s.college}</p>
                   </td>
-                  <td className="text-sm text-gray-600">{s.college}</td>
-                  <td>
-                    <span className="badge badge-blue">{s.qualification}</span>
-                    <p className="text-xs text-gray-400 mt-1">{s.branch}</p>
+                  <td data-label="Contact">
+                    <div>
+                      <p className="text-sm text-gray-600">{s.phone}</p>
+                      <p className="text-xs text-gray-400">{s.email}</p>
+                    </div>
                   </td>
-                  <td className="text-sm font-medium text-gray-800">{s.company}</td>
-                  <td className="text-sm text-gray-600">{s.role}</td>
-                  <td className="text-sm font-semibold text-green-700">₹{s.salary.toLocaleString('en-IN')}/mo</td>
-                  <td className="text-sm text-gray-500">{s.placedOn}</td>
-                  <td><span className="badge badge-gray">{s.district}</span></td>
+                  <td data-label="College" className="text-sm text-gray-600 hidden sm:table-cell">{s.college}</td>
+                  <td data-label="Qualification">
+                    <div>
+                      <span className="badge badge-blue">{s.qualification}</span>
+                      <p className="text-xs text-gray-400 mt-1">{s.branch}</p>
+                    </div>
+                  </td>
+                  <td data-label="Company" className="text-sm font-medium text-gray-800">{s.company}</td>
+                  <td data-label="Role" className="text-sm text-gray-600">{s.role}</td>
+                  <td data-label="Salary" className="text-sm font-semibold text-green-700">₹{s.salary.toLocaleString('en-IN')}/mo</td>
+                  <td data-label="Placed On" className="text-sm text-gray-500">{s.placedOn}</td>
+                  <td data-label="District"><span className="badge badge-gray">{s.district}</span></td>
                 </tr>
               ))}
               {filtered.length === 0 && (

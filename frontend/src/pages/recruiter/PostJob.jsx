@@ -117,7 +117,7 @@ export default function RecruiterPostJob() {
               </div>
               <div className="space-y-4">
                 {slots.map((sl, i) => (
-                  <div key={i} className="grid grid-cols-3 gap-3 p-4 bg-gray-50 rounded-xl relative">
+                  <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-gray-50 rounded-xl relative slot-row-grid">
                     <div>
                       <label className="form-label form-label-sm">Qualification</label>
                       <select className="form-input form-select" value={sl.qualification} onChange={e => setSlot(i, 'qualification', e.target.value)}>

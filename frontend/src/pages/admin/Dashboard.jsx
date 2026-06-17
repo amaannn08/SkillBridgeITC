@@ -168,7 +168,7 @@ export default function AdminDashboard() {
           </button>
         </div>
         <div className="table-wrapper">
-          <table>
+          <table className="mobile-card-table">
             <thead>
               <tr>
                 <th>Job Title</th><th>Company</th><th>Location</th><th>Status</th><th>Posted</th>
@@ -180,10 +180,10 @@ export default function AdminDashboard() {
                 return (
                   <tr key={job._id}>
                     <td className="font-medium text-gray-800">{job.title}</td>
-                    <td className="text-gray-600">{company?.name}</td>
-                    <td className="text-gray-500">{job.location}, {job.state}</td>
-                    <td><StatusBadge type="job" status={job.status} /></td>
-                    <td className="text-gray-400 text-xs">{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}</td>
+                    <td data-label="Company" className="text-gray-600">{company?.name}</td>
+                    <td data-label="Location" className="text-gray-500">{job.location}, {job.state}</td>
+                    <td data-label="Status"><StatusBadge type="job" status={job.status} /></td>
+                    <td data-label="Posted" className="text-gray-400 text-xs">{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}</td>
                   </tr>
                 );
               })}

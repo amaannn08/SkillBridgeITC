@@ -66,12 +66,12 @@ export default function RecruiterJobApplications() {
         <ArrowLeft size={16} /> Back to Jobs
       </button>
 
-      <div className="page-header flex items-start justify-between">
+      <div className="page-header flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <h1 className="page-title">{job.title}</h1>
           <p className="page-subtitle">{apps.length} application{apps.length !== 1 ? 's' : ''} received</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2 page-header-actions">
           <button onClick={() => handleDownload('shortlisted')} className="btn btn-outline btn-sm">
             <Download size={14} /> Shortlisted ZIPs
           </button>
@@ -122,10 +122,10 @@ export default function RecruiterJobApplications() {
                 </div>
 
                 <div className="table-wrapper">
-                  <table>
+                  <table className="mobile-card-table">
                     <thead>
                       <tr>
-                        <th className="w-8"><input type="checkbox" className="rounded"
+                        <th className="w-8 td-check"><input type="checkbox" className="rounded"
                           onChange={e => {
                             const updates = {};
                             app.studentStatuses.forEach(ss => { updates[`${app._id}_${ss.studentId}`] = e.target.checked; });
@@ -144,7 +144,7 @@ export default function RecruiterJobApplications() {
                         const key = `${app._id}_${ss.studentId}`;
                         return (
                           <tr key={ss.studentId} className={selected[key] ? 'bg-blue-50/50' : ''}>
-                            <td>
+                            <td className="td-check">
                               <input type="checkbox" className="rounded" checked={!!selected[key]}
                                 onChange={() => toggleSelect(app._id, ss.studentId)} />
                             </td>
@@ -152,19 +152,19 @@ export default function RecruiterJobApplications() {
                               <p className="font-semibold text-sm text-gray-800">{student?.name || ss.studentId}</p>
                               <p className="text-xs text-gray-400">{student?.gender} · {student?.address}</p>
                             </td>
-                            <td>
+                            <td data-label="CGPA">
                               <span className={`font-bold text-sm ${(student?.cgpa || 0) >= 8.5 ? 'text-green-600' : 'text-blue-600'}`}>
                                 {student?.cgpa || '—'}
                               </span>
                             </td>
-                            <td>
+                            <td data-label="Skills">
                               <div className="flex flex-wrap gap-1">
                                 {(student?.skills || []).slice(0, 2).map(s => <span key={s} className="badge badge-gray">{s}</span>)}
                               </div>
                             </td>
-                            <td><StatusBadge type="student" status={ss.status} /></td>
-                            <td>
-                              <select className="form-input form-select py-1.5 text-xs w-36"
+                            <td data-label="Status"><StatusBadge type="student" status={ss.status} /></td>
+                            <td data-label="Update">
+                              <select className="form-input form-select py-1.5 text-xs w-full sm:w-36"
                                 value={ss.status}
                                 onChange={e => updateStudentStatus(app._id, ss.studentId, e.target.value)}>
                                 {STUDENT_ACTIONS.map(a => <option key={a} value={a}>{a.charAt(0).toUpperCase() + a.slice(1).replace('_', ' ')}</option>)}

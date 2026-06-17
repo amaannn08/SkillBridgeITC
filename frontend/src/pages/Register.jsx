@@ -112,7 +112,7 @@ export default function Register() {
         </div>
       </nav>
 
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '48px 24px', minHeight: 'calc(100vh - 58px)' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: 'clamp(24px, 5vw, 48px) clamp(16px, 4vw, 24px)', minHeight: 'calc(100vh - 58px)' }}>
         <div style={{ width: '100%', maxWidth: step === 1 ? 820 : 520 }}>
           <StepIndicator step={step} />
 
@@ -128,7 +128,7 @@ export default function Register() {
                   <p style={{ color: '#64748B', fontSize: 15 }}>Select your role to begin registration</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 16 }} className="sm:grid-cols-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: 16 }}>
                   {ROLES.map((opt, i) => (
                     <motion.button
                       key={opt.key}
@@ -196,7 +196,7 @@ export default function Register() {
                   </div>
                 )}
 
-                <div style={{ background: '#fff', border: '1px solid #E2E8F0', borderRadius: 20, padding: '28px 28px' }}>
+                <div style={{ background: '#fff', border: '1px solid #E2E8F0', borderRadius: 20, padding: 'clamp(18px, 5vw, 28px)' }}>
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
                     {/* Common fields */}

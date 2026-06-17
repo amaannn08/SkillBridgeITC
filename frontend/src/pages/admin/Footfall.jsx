@@ -46,7 +46,7 @@ export default function Footfall() {
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 footfall-summary-grid">
         {[
           { label: "Today's Footfall", value: totalToday, icon: Users,     color: '#F97316', bg: '#FFF7ED', border: '#FED7AA', live: true },
           { label: 'This Week',        value: totalWeek.toLocaleString(),  icon: TrendingUp, color: '#2563EB', bg: '#EFF6FF', border: '#BFDBFE' },
@@ -114,7 +114,7 @@ export default function Footfall() {
           </button>
         </div>
         <div className="table-wrapper">
-          <table>
+          <table className="mobile-card-table">
             <thead><tr><th>Institution</th><th>Type</th><th>Today</th><th>This Week</th><th>This Month</th></tr></thead>
             <tbody>
               {INSTITUTION_DATA.map((inst, i) => {
@@ -122,10 +122,10 @@ export default function Footfall() {
                 return (
                   <tr key={i}>
                     <td className="font-medium text-gray-800">{inst.name}</td>
-                    <td><span style={{ fontSize: 11, fontWeight: 700, background: tc.bg, color: tc.text, border: `1px solid ${tc.border}`, borderRadius: 99, padding: '2px 9px' }}>{inst.type}</span></td>
-                    <td><span style={{ fontWeight: 700, color: '#F97316' }}>{inst.today}</span></td>
-                    <td className="text-gray-600">{inst.week}</td>
-                    <td className="text-gray-600">{inst.month.toLocaleString()}</td>
+                    <td data-label="Type"><span style={{ fontSize: 11, fontWeight: 700, background: tc.bg, color: tc.text, border: `1px solid ${tc.border}`, borderRadius: 99, padding: '2px 9px' }}>{inst.type}</span></td>
+                    <td data-label="Today"><span style={{ fontWeight: 700, color: '#F97316' }}>{inst.today}</span></td>
+                    <td data-label="This Week" className="text-gray-600">{inst.week}</td>
+                    <td data-label="This Month" className="text-gray-600">{inst.month.toLocaleString()}</td>
                   </tr>
                 );
               })}

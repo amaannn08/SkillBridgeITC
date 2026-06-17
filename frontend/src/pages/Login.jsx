@@ -106,7 +106,7 @@ export default function Login() {
       </div>
 
       {/* ── Right panel — form ── */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F8FAFC', padding: '40px 24px' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F8FAFC', padding: 'clamp(24px, 5vw, 40px) clamp(16px, 5vw, 24px)', overflowX: 'hidden' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -184,14 +184,14 @@ export default function Login() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {CREDENTIALS.map((c, i) => (
                 <button key={i} type="button" onClick={() => quickFill(c)}
-                  style={{ textAlign: 'left', background: 'transparent', border: '1px solid #F1F5F9', borderRadius: 9, padding: '9px 12px', cursor: 'pointer', transition: 'all 0.15s', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                  style={{ textAlign: 'left', background: 'transparent', border: '1px solid #F1F5F9', borderRadius: 9, padding: '9px 12px', cursor: 'pointer', transition: 'all 0.15s', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, minWidth: 0 }}
                   onMouseEnter={e => { e.currentTarget.style.background = '#F8FAFC'; e.currentTarget.style.borderColor = '#E2E8F0'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = '#F1F5F9'; }}>
-                  <div>
+                  <div style={{ minWidth: 0, flex: 1 }}>
                     <p style={{ fontSize: 12, fontWeight: 600, color: '#0F172A' }}>{c.label}</p>
-                    <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 1 }}>{c.email}</p>
+                    <p style={{ fontSize: 11, color: '#94A3B8', marginTop: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.email}</p>
                   </div>
-                  <span style={{ fontSize: 11, color: '#CBD5E1', fontFamily: 'monospace' }}>{c.password}</span>
+                  <span style={{ fontSize: 11, color: '#CBD5E1', fontFamily: 'monospace', flexShrink: 0 }}>{c.password}</span>
                 </button>
               ))}
             </div>

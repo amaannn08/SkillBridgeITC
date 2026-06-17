@@ -140,7 +140,7 @@ export default function CoordBatchDetail() {
       ) : (
         <div className="card">
           <div className="table-wrapper">
-            <table>
+            <table className="mobile-card-table">
               <thead>
                 <tr>
                   <th>Student</th>
@@ -165,18 +165,18 @@ export default function CoordBatchDetail() {
                         </div>
                       </div>
                     </td>
-                    <td className="text-sm text-gray-600 font-mono">{st.rollNumber}</td>
-                    <td>
+                    <td data-label="Roll No." className="text-sm text-gray-600 font-mono">{st.rollNumber}</td>
+                    <td data-label="CGPA">
                       <span className={`font-bold text-sm ${st.cgpa >= 8.5 ? 'text-green-600' : st.cgpa >= 7 ? 'text-blue-600' : 'text-orange-600'}`}>
                         {st.cgpa}
                       </span>
                     </td>
-                    <td>
+                    <td data-label="Skills">
                       <div className="flex flex-wrap gap-1">
                         {(st.skills || []).map(s => <span key={s} className="badge badge-gray">{s}</span>)}
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Certs">
                       {(st.certifications || []).length > 0
                         ? <div className="flex flex-wrap gap-1">{st.certifications.map(c => <span key={c} className="badge badge-green">{c}</span>)}</div>
                         : <span className="text-xs text-gray-400">—</span>}

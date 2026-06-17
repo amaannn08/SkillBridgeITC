@@ -56,7 +56,7 @@ export default function AdminUsers() {
         </div>
 
         <div className="table-wrapper">
-          <table>
+          <table className="mobile-card-table">
             <thead>
               <tr>
                 <th>User</th>
@@ -79,10 +79,10 @@ export default function AdminUsers() {
                       </div>
                     </div>
                   </td>
-                  <td><StatusBadge type="role" status={u.role} /></td>
-                  <td><StatusBadge type="user" status={u.approvalStatus} /></td>
-                  <td className="text-sm text-gray-600">{u.state || u.companyId || '—'}</td>
-                  <td className="text-sm text-gray-500">{u.designation || '—'}</td>
+                  <td data-label="Role"><StatusBadge type="role" status={u.role} /></td>
+                  <td data-label="Status"><StatusBadge type="user" status={u.approvalStatus} /></td>
+                  <td data-label="State" className="text-sm text-gray-600">{u.state || u.companyId || '—'}</td>
+                  <td data-label="Designation" className="text-sm text-gray-500">{u.designation || '—'}</td>
                   <td>
                     {u.role !== 'super_admin' && (u.approvalStatus === 'approved' || u.approvalStatus === 'suspended') && (
                       <button

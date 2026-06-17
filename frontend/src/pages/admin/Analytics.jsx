@@ -8,11 +8,11 @@ function BarRow({ label, value, max, color = '#2563EB', suffix = '' }) {
   const pct = Math.round((value / max) * 100);
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-gray-600 w-32 truncate flex-shrink-0">{label}</span>
+      <span className="text-sm text-gray-600 w-20 sm:w-32 truncate flex-shrink-0 analytics-bar-label">{label}</span>
       <div className="flex-1 progress-bar">
         <div className="progress-fill" style={{ width: `${pct}%`, background: color }} />
       </div>
-      <span className="text-sm font-semibold text-gray-700 w-12 text-right">{value}{suffix}</span>
+      <span className="text-sm font-semibold text-gray-700 w-10 text-right flex-shrink-0">{value}{suffix}</span>
     </div>
   );
 }
@@ -22,11 +22,11 @@ function FunnelRow({ stage, value, max, index }) {
   const colors = ['#2563EB','#3B82F6','#F59E0B','#10B981','#16A34A'];
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-gray-600 w-44 flex-shrink-0">{stage}</span>
+      <span className="text-sm text-gray-600 w-28 sm:w-44 flex-shrink-0 truncate analytics-funnel-label">{stage}</span>
       <div className="flex-1 progress-bar">
         <div className="progress-fill" style={{ width: `${pct}%`, background: colors[index] || '#2563EB' }} />
       </div>
-      <span className="text-sm font-bold text-gray-800 w-12 text-right">{value.toLocaleString('en-IN')}</span>
+      <span className="text-sm font-bold text-gray-800 w-12 text-right flex-shrink-0">{value.toLocaleString('en-IN')}</span>
     </div>
   );
 }
