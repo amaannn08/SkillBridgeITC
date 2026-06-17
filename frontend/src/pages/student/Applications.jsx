@@ -44,32 +44,33 @@ function StatusTimeline({ status }) {
   const currentStep = STATUS_TO_STEP[status] ?? 0;
 
   return (
-    <div className="flex items-center gap-0">
+    <div className="flex items-start gap-0 overflow-x-hidden">
       {TIMELINE_STAGES.map((stage, i) => {
         const done = i < currentStep;
         const active = i === currentStep;
         const Icon = stage.icon;
         return (
-          <div key={stage.key} className="flex items-center flex-1">
+          <div key={stage.key} className="flex items-center flex-1 min-w-0">
             <div className="flex flex-col items-center flex-shrink-0">
               <div style={{
-                width: 32, height: 32, borderRadius: '50%',
+                width: 30, height: 30, borderRadius: '50%',
                 background: done ? '#16A34A' : active ? '#2563EB' : '#E2E8F0',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 border: active ? '2px solid #93C5FD' : 'none',
                 transition: 'all 0.3s',
+                flexShrink: 0,
               }}>
                 {done
-                  ? <CheckCircle size={16} style={{ color: '#fff' }} />
-                  : <Icon size={14} style={{ color: active ? '#fff' : '#94A3B8' }} />
+                  ? <CheckCircle size={14} style={{ color: '#fff' }} />
+                  : <Icon size={13} style={{ color: active ? '#fff' : '#94A3B8' }} />
                 }
               </div>
-              <p style={{ fontSize: 10, fontWeight: active ? 700 : 500, color: active ? '#2563EB' : done ? '#16A34A' : '#94A3B8', marginTop: 4, textAlign: 'center', whiteSpace: 'nowrap' }}>
+              <p style={{ fontSize: 9, fontWeight: active ? 700 : 500, color: active ? '#2563EB' : done ? '#16A34A' : '#94A3B8', marginTop: 4, textAlign: 'center', wordBreak: 'break-word', maxWidth: 52, lineHeight: 1.3 }}>
                 {stage.label}
               </p>
             </div>
             {i < TIMELINE_STAGES.length - 1 && (
-              <div style={{ flex: 1, height: 2, background: done ? '#16A34A' : '#E2E8F0', margin: '0 4px', marginBottom: 18, transition: 'background 0.3s' }} />
+              <div style={{ flex: 1, height: 2, background: done ? '#16A34A' : '#E2E8F0', margin: '0 2px', marginBottom: 20, transition: 'background 0.3s', minWidth: 4 }} />
             )}
           </div>
         );
@@ -115,18 +116,19 @@ export default function StudentApplications() {
             return (
               <div key={app._id} className={`card border ${info.color}`}>
                 {/* Header */}
-                <div className="flex items-center gap-4 cursor-pointer" onClick={() => setExpanded(isOpen ? null : app._id)}>
-                  <div className="w-12 h-12 bg-white rounded-xl border border-gray-100 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <Briefcase size={20} className="text-blue-600" />
+                <div className="flex items-start gap-3 cursor-pointer" onClick={() => setExpanded(isOpen ? null : app._id)}>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl border border-gray-100 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <Briefcase size={18} className="text-blue-600" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-0.5">
-                      <h3 className="font-bold text-gray-900">{app.job?.title}</h3>
+                    <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                      <h3 className="font-bold text-gray-900 text-sm sm:text-base">{app.job?.title}</h3>
                       <StatusBadge type="student" status={app.myStatus?.status} />
                     </div>
-                    <p className="text-sm text-gray-500">{app.company?.name} · {app.job?.location}, {app.job?.state}</p>
+                    <p className="text-xs sm:text-sm text-gray-500 truncate">{app.company?.name} · {app.job?.location}, {app.job?.state}</p>
+                    <p className="text-xs text-gray-400 mt-0.5 sm:hidden">Submitted: {app.submittedAt}</p>
                   </div>
-                  <div className="flex items-center gap-3 flex-shrink-0">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <div className="text-right hidden sm:block">
                       <p className="text-xs text-gray-400">Submitted</p>
                       <p className="text-sm font-medium text-gray-600">{app.submittedAt}</p>

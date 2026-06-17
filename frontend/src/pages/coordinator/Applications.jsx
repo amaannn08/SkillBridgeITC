@@ -61,7 +61,7 @@ export default function CoordApplications() {
                 )}
 
                 <div className="table-wrapper">
-                  <table>
+                  <table className="mobile-card-table">
                     <thead>
                       <tr>
                         <th>Student</th>
@@ -76,9 +76,9 @@ export default function CoordApplications() {
                         return (
                           <tr key={ss.studentId}>
                             <td className="font-medium text-gray-800">{student?.name || ss.studentId}</td>
-                            <td><StatusBadge type="student" status={ss.status} /></td>
-                            <td className="text-sm text-gray-500">{ss.recruiterNote || '—'}</td>
-                            <td className="text-xs text-gray-400">{ss.updatedAt}</td>
+                            <td data-label="Status"><StatusBadge type="student" status={ss.status} /></td>
+                            <td data-label="Note" className="text-sm text-gray-500">{ss.recruiterNote || '—'}</td>
+                            <td data-label="Updated" className="text-xs text-gray-400">{ss.updatedAt}</td>
                           </tr>
                         );
                       })}

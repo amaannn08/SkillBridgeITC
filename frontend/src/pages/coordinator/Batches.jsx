@@ -105,7 +105,7 @@ export default function CoordBatches() {
                 <input className="form-input" placeholder="e.g. Electrical ITI Passout 2024"
                   value={form.name} onChange={e => set('name', e.target.value)} required />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="form-label">Qualification <span className="text-red-500">*</span></label>
                   <select className="form-input form-select" value={form.qualification} onChange={e => set('qualification', e.target.value)} required>
