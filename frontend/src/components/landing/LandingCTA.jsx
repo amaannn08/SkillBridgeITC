@@ -9,7 +9,7 @@ export default function LandingCTA() {
   const navigate = useNavigate();
 
   return (
-    <section style={{ padding: '0 24px 96px' }}>
+    <section style={{ padding: '80px 24px 96px' }}>
       <motion.div ref={ref}
         initial={{ opacity: 0, y: 32 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
