@@ -8,6 +8,9 @@
   --primary-light: #2a4f7c;
   --accent: #2563EB;
   --accent-light: #3b82f6;
+  --saffron: #F97316;
+  --saffron-light: #FB923C;
+  --saffron-dark: #EA580C;
   --success: #16A34A;
   --warning: #EA580C;
   --danger: #DC2626;
@@ -334,4 +337,64 @@ tbody tr:hover { background: #FAFBFF; }
     background: rgba(0,0,0,.45); z-index: 39;
     animation: fadeIn .2s ease;
   }
+}
+
+/* ── MESIC Landing Utilities ── */
+
+/* Photo hero overlay */
+.hero-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(6,13,26,0.92) 0%,
+    rgba(10,22,40,0.82) 45%,
+    rgba(15,36,68,0.55) 75%,
+    rgba(15,36,68,0.3) 100%
+  );
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+}
+
+/* Saffron button */
+.btn-saffron {
+  background: var(--saffron);
+  color: #fff;
+}
+.btn-saffron:hover {
+  background: var(--saffron-dark);
+  box-shadow: 0 4px 18px rgba(249,115,22,.35);
+  transform: translateY(-1px);
+}
+
+/* Floating badge pulse */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+.float-badge { animation: floatUp 3s ease-in-out infinite; }
+
+/* Saffron text */
+.text-saffron { color: var(--saffron); }
+.bg-saffron   { background: var(--saffron); }
+
+/* Role card hover ring */
+.role-card {
+  cursor: pointer;
+  transition: all 0.22s ease;
+  border: 2px solid transparent;
+}
+.role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+}
+.role-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 8px 28px rgba(0,0,0,0.1);
 }
