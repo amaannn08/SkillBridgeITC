@@ -14,17 +14,18 @@ export default function LandingPillars() {
   const inView = useInView(ref, { once: true, margin: '-40px' });
 
   return (
-    <section style={{ background: '#fff', borderBottom: '1px solid #E2E8F0' }}>
+    <section style={{ background: '#fff', borderBottom: '1px solid #E2E8F0', overflowX: 'hidden' }}>
       <motion.div ref={ref}
         initial={{ opacity: 0, y: 12 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.45, ease: 'easeOut' }}
         className="max-w-5xl mx-auto px-6 lg:px-20 py-5 flex flex-wrap justify-center gap-0">
         {PILLARS.map((p, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '9px 28px', borderRight: i < PILLARS.length - 1 ? '1px solid #E2E8F0' : 'none' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '9px 20px', borderRight: 0 }}
+            className={i < PILLARS.length - 1 ? 'border-r border-gray-200' : ''}>
             <CheckCircle size={14} style={{ color: '#F97316', flexShrink: 0 }} />
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#0F172A' }}>{p.label}</span>
-            <span style={{ fontSize: 12, color: '#94A3B8' }}>{p.desc}</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#0F172A', whiteSpace: 'nowrap' }}>{p.label}</span>
+            <span style={{ fontSize: 12, color: '#94A3B8', whiteSpace: 'nowrap' }}>{p.desc}</span>
           </div>
         ))}
       </motion.div>

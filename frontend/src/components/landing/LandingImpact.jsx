@@ -32,14 +32,14 @@ export default function LandingImpact() {
 
           {/* Left: Photo */}
           <FadeUp>
-            <div style={{ position: 'relative' }}>
+            <div style={{ position: 'relative', paddingBottom: 28, paddingLeft: 16 }}>
               <div style={{ borderRadius: 24, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.14)' }}>
                 <img src="/students-portrait.png" alt="MESIC students"
                   style={{ width: '100%', height: 420, objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
               </div>
               {/* Floating badge */}
               <div className="float-badge" style={{
-                position: 'absolute', bottom: -18, right: -18,
+                position: 'absolute', bottom: 0, right: 8,
                 background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
                 borderRadius: 16, padding: '16px 20px', textAlign: 'center',
                 boxShadow: '0 12px 32px rgba(249,115,22,0.4)',
@@ -49,7 +49,7 @@ export default function LandingImpact() {
               </div>
               {/* Second badge */}
               <div style={{
-                position: 'absolute', top: 20, left: -16,
+                position: 'absolute', top: 20, left: 0,
                 background: '#fff', borderRadius: 12, padding: '10px 16px',
                 boxShadow: '0 8px 24px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', gap: 10,
               }}>

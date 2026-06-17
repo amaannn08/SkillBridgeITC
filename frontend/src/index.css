@@ -28,7 +28,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,6 +37,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 /* ── Scrollbar ── */
@@ -445,9 +446,25 @@ tbody tr:hover { background: #FAFBFF; }
   /* Hero section */
   .hero-content { padding-top: 60px !important; padding-bottom: 60px !important; }
 
-  /* Stats row in hero — scroll horizontally */
-  .hero-stats-row { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; padding-bottom: 8px; }
-  .hero-stats-row > * { flex-shrink: 0; }
+  /* Stats row in hero — 2×2 grid on mobile */
+  .hero-stats-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    margin-top: 40px !important;
+  }
+  .hero-stats-row > * {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 16px 12px !important;
+    min-width: 0 !important;
+  }
+  .hero-stats-row > *:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.1) !important;
+  }
+  .hero-stats-row > *:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
 
   /* CTA buttons — stack vertically */
   .hero-cta-row { flex-direction: column !important; }
