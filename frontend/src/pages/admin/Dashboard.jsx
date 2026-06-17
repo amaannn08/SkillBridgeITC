@@ -84,15 +84,15 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 stagger-children stats-grid">
-        <StatsCard icon={AlertCircle}   value={summary.pendingApprovals}   label="Pending Approvals"      color="orange" trend="up" trendLabel="2 new today"     delay={0}   />
-        <StatsCard icon={Building2}     value={summary.totalInstitutions}  label="Institutions"           color="green"  trend="up" trendLabel="+12 this month"  delay={60}  />
-        <StatsCard icon={Users}         value={summary.totalCompanies}     label="Industry Partners"      color="blue"   trend="up" trendLabel="+5 this month"   delay={120} />
-        <StatsCard icon={Briefcase}     value={summary.totalJobPostings}   label="Job Postings"           color="navy"   trend="up" trendLabel="+18 this month"  delay={180} />
-        <StatsCard icon={ClipboardList} value={summary.totalApplications}  label="Total Applications"     color="purple" trend="up" trendLabel="+43 this week"   delay={240} />
-        <StatsCard icon={TrendingUp}    value={summary.totalPlacements}    label="Placements Facilitated" color="green"  trend="up" trendLabel="+120 this month" delay={300} />
-        <StatsCard icon={Users}         value={summary.totalCoordinators}  label="Coordinators"           color="blue"                                            delay={360} />
-        <StatsCard icon={Users}         value={summary.totalRecruiters}    label="Recruiters"             color="navy"                                            delay={420} />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 stagger-children stats-grid">
+        <StatsCard compact icon={AlertCircle}   value={summary.pendingApprovals}   label="Pending Approvals"      color="orange" trend="up" trendLabel="2 new today"     delay={0}   />
+        <StatsCard compact icon={Building2}     value={summary.totalInstitutions}  label="Institutions"           color="green"  trend="up" trendLabel="+12 this month"  delay={60}  />
+        <StatsCard compact icon={Users}         value={summary.totalCompanies}     label="Industry Partners"      color="blue"   trend="up" trendLabel="+5 this month"   delay={120} />
+        <StatsCard compact icon={Briefcase}     value={summary.totalJobPostings}   label="Job Postings"           color="navy"   trend="up" trendLabel="+18 this month"  delay={180} />
+        <StatsCard compact icon={ClipboardList} value={summary.totalApplications}  label="Total Applications"     color="purple" trend="up" trendLabel="+43 this week"   delay={240} />
+        <StatsCard compact icon={TrendingUp}    value={summary.totalPlacements}    label="Placements Facilitated" color="green"  trend="up" trendLabel="+120 this month" delay={300} />
+        <StatsCard compact icon={Users}         value={summary.totalCoordinators}  label="Coordinators"           color="blue"                                            delay={360} />
+        <StatsCard compact icon={Users}         value={summary.totalRecruiters}    label="Recruiters"             color="navy"                                            delay={420} />
       </div>
 
       {/* Quick actions */}
