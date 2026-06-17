@@ -398,3 +398,63 @@ tbody tr:hover { background: #FAFBFF; }
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 8px 28px rgba(0,0,0,0.1);
 }
+
+/* ── Mobile Responsive Utilities ── */
+@media (max-width: 640px) {
+  /* Page headers */
+  .page-title  { font-size: 1.2rem; }
+  .page-header { margin-bottom: 18px !important; }
+  .page-subtitle { font-size: .875rem; }
+
+  /* Cards */
+  .card    { padding: 16px !important; border-radius: 12px; }
+  .card-sm { padding: 12px !important; }
+
+  /* Dashboard — stack header row */
+  .dashboard-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* Stat cards — allow 2-col on xs, 1-col below 360px */
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Tables — horizontal scroll */
+  .table-wrapper { border-radius: 10px; }
+
+  /* Modal */
+  .modal-content { padding: 20px !important; border-radius: 14px; }
+
+  /* Tabs — scrollable */
+  .tab-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; flex-wrap: nowrap; }
+  .tab-item { flex-shrink: 0; padding: 10px 14px !important; font-size: .8125rem; }
+
+  /* Buttons */
+  .btn    { font-size: .8125rem; padding: 8px 14px !important; }
+  .btn-lg { padding: 11px 20px !important; font-size: .9375rem; }
+
+  /* Stats icon */
+  .stats-icon-wrap { width: 40px; height: 40px; border-radius: 11px; }
+}
+
+/* ── Landing page mobile ── */
+@media (max-width: 640px) {
+  /* Footer grid — single col */
+  .landing-footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* Hero section */
+  .hero-content { padding-top: 60px !important; padding-bottom: 60px !important; }
+
+  /* Stats row in hero — scroll horizontally */
+  .hero-stats-row { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; padding-bottom: 8px; }
+  .hero-stats-row > * { flex-shrink: 0; }
+
+  /* CTA buttons — stack vertically */
+  .hero-cta-row { flex-direction: column !important; }
+  .hero-cta-row > * { width: 100% !important; justify-content: center !important; }
+}
+
+/* Quick-actions grid — 2-col on mobile */
+@media (max-width: 640px) {
+  .quick-actions-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}

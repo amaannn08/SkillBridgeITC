@@ -57,7 +57,7 @@ export default function AdminDashboard() {
     <div className="animate-fade-in">
       {/* Page header */}
       <div style={{ marginBottom: 28 }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
+        <div className="dashboard-header-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 stagger-children">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 stagger-children stats-grid">
         <StatsCard icon={AlertCircle}   value={summary.pendingApprovals}   label="Pending Approvals"      color="orange" trend="up" trendLabel="2 new today"     delay={0}   />
         <StatsCard icon={Building2}     value={summary.totalInstitutions}  label="Institutions"           color="green"  trend="up" trendLabel="+12 this month"  delay={60}  />
         <StatsCard icon={Users}         value={summary.totalCompanies}     label="Industry Partners"      color="blue"   trend="up" trendLabel="+5 this month"   delay={120} />
@@ -96,7 +96,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 quick-actions-grid">
         <QuickAction icon={CheckSquare} label="Approvals"    desc={`${pendingUsers.length} pending`}  color="orange" to="/admin/approvals"  navigate={navigate} />
         <QuickAction icon={MapPin}      label="HOD Map"      desc="District institutions"              color="blue"   to="/admin/map"        navigate={navigate} />
         <QuickAction icon={Activity}    label="Footfall"     desc="Student visit tracker"              color="green"  to="/admin/footfall"   navigate={navigate} />

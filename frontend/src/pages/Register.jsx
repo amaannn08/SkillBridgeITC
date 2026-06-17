@@ -128,7 +128,7 @@ export default function Register() {
                   <p style={{ color: '#64748B', fontSize: 15 }}>Select your role to begin registration</p>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: 16 }} className="sm:grid-cols-3">
                   {ROLES.map((opt, i) => (
                     <motion.button
                       key={opt.key}
@@ -200,7 +200,7 @@ export default function Register() {
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
                     {/* Common fields */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                       <div>
                         <label className="form-label">Full Name</label>
                         <input className="form-input" placeholder="As per Aadhaar" onChange={e => set('name', e.target.value)} required />
@@ -211,7 +211,7 @@ export default function Register() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                       <div>
                         <label className="form-label">Official Email</label>
                         <input className="form-input" type="email" placeholder="you@institution.gov.in" onChange={e => set('email', e.target.value)} required />
@@ -229,7 +229,7 @@ export default function Register() {
                           <label className="form-label">Institution Name</label>
                           <input className="form-input" placeholder="e.g. Govt. ITI Medak" onChange={e => set('institution', e.target.value)} required />
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                           <div>
                             <label className="form-label">Institution Type</label>
                             <select className="form-input form-select" onChange={e => set('institutionType', e.target.value)} required>
@@ -256,7 +256,7 @@ export default function Register() {
                           <label className="form-label">Company Name</label>
                           <input className="form-input" placeholder="e.g. ITC Limited" onChange={e => set('company', e.target.value)} required />
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                           <div>
                             <label className="form-label">Company Email Domain</label>
                             <input className="form-input" placeholder="e.g. itcltd.com" onChange={e => set('domain', e.target.value)} required />
@@ -279,7 +279,7 @@ export default function Register() {
                     {/* Student-specific */}
                     {role === 'student' && (
                       <>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                           <div>
                             <label className="form-label">Roll Number</label>
                             <input className="form-input" placeholder="e.g. ITI-2024-001" onChange={e => set('roll', e.target.value)} required />
@@ -293,7 +293,7 @@ export default function Register() {
                           <label className="form-label">Institution Name</label>
                           <input className="form-input" placeholder="e.g. Govt. ITI Medak" onChange={e => set('institution', e.target.value)} required />
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                        <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 14 }}>
                           <div>
                             <label className="form-label">Qualification</label>
                             <select className="form-input form-select" onChange={e => set('qualification', e.target.value)} required>

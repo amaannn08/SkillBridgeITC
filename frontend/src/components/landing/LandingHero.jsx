@@ -66,7 +66,7 @@ export default function LandingHero({ stats }) {
 
         {/* CTA buttons */}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.38 }}
-          style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          className="hero-cta-row" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <button onClick={() => navigate('/register')}
             style={{ background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)', color: '#fff', fontWeight: 700, fontSize: 15, padding: '13px 30px', borderRadius: 11, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 0 0 1px rgba(249,115,22,0.5), 0 8px 28px rgba(249,115,22,0.38)', transition: 'all 0.18s' }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(249,115,22,0.48)'; }}
@@ -84,7 +84,7 @@ export default function LandingHero({ stats }) {
         {/* Stats row */}
         {stats && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
-            style={{ display: 'flex', marginTop: 60, flexWrap: 'wrap', gap: 0, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 32 }}>
+            className="hero-stats-row" style={{ display: 'flex', marginTop: 60, flexWrap: 'wrap', gap: 0, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 32 }}>
             {stats.map((s, i) => (
               <div key={i} style={{ padding: '0 28px', borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none', textAlign: 'center', minWidth: 100 }}>
                 <p style={{ color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</p>
