@@ -20,7 +20,7 @@ export default function StatsCard({ icon: Icon, value, label, trend, trendLabel,
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
-      className="card"
+      className="card w-full"
       style={{ border: `1px solid ${c.border}`, background: '#fff', ...(compact ? { padding: '12px 14px' } : {}) }}
     >
       <div className="flex items-start justify-between gap-3">
