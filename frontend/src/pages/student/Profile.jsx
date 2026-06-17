@@ -50,14 +50,14 @@ export default function StudentProfile() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header flex items-start justify-between">
+      <div className="page-header flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div>
           <h1 className="page-title">My Profile</h1>
           <p className="page-subtitle">Your placement profile visible to recruiters</p>
         </div>
         {!editing
-          ? <button onClick={() => setEditing(true)} className="btn btn-outline btn-sm"><Edit2 size={14} /> Edit Profile</button>
-          : <div className="flex gap-2">
+          ? <button onClick={() => setEditing(true)} className="btn btn-outline btn-sm flex-shrink-0"><Edit2 size={14} /> Edit Profile</button>
+          : <div className="flex gap-2 flex-shrink-0">
               <button onClick={() => setEditing(false)} className="btn btn-outline btn-sm"><X size={14} /> Cancel</button>
               <button onClick={save} className="btn btn-primary btn-sm"><Save size={14} /> Save Changes</button>
             </div>

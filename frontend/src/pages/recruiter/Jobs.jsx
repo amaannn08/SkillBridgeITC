@@ -25,12 +25,12 @@ export default function RecruiterJobs() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header flex items-start justify-between">
+      <div className="page-header flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div>
           <h1 className="page-title">My Job Postings</h1>
           <p className="page-subtitle">{jobs.length} total postings</p>
         </div>
-        <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary">
+        <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary flex-shrink-0">
           <Plus size={16} /> Post New Job
         </button>
       </div>
