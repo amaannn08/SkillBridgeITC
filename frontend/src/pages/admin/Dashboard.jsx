@@ -57,25 +57,25 @@ export default function AdminDashboard() {
     <div className="animate-fade-in">
       {/* Page header */}
       <div style={{ marginBottom: 28 }}>
-        <div className="dashboard-header-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div className="min-w-0">
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
               <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
                 District Collector Portal
               </span>
             </div>
-            <h1 className="page-title">Medak District — MESIC Dashboard</h1>
-            <p className="page-subtitle">Employment, Skill &amp; Industry Connect · Telangana</p>
+            <h1 className="page-title" style={{ wordBreak: 'break-word' }}>Medak District &mdash; MESIC Dashboard</h1>
+            <p className="page-subtitle">Employment, Skill &amp; Industry Connect &middot; Telangana</p>
           </div>
 
           {/* Footfall live badge */}
-          <div style={{ background: 'linear-gradient(135deg, #0F2444 0%, #1E3A5F 100%)', borderRadius: 16, padding: '14px 20px', minWidth: 160, boxShadow: '0 4px 20px rgba(15,36,68,0.15)' }}>
+          <div style={{ background: 'linear-gradient(135deg, #0F2444 0%, #1E3A5F 100%)', borderRadius: 16, padding: '14px 20px', flexShrink: 0, boxShadow: '0 4px 20px rgba(15,36,68,0.15)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
               <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 6px #22c55e', display: 'inline-block' }} />
               <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(251,146,60,0.8)' }}>Today's Footfall</span>
             </div>
             <p style={{ fontSize: 28, fontWeight: 900, color: '#fff', lineHeight: 1 }}>{FOOTFALL_TODAY}</p>
-            <p style={{ fontSize: 11, color: 'rgba(148,163,184,1)', marginTop: 3 }}>students · {FOOTFALL_WEEK.toLocaleString()} this week</p>
+            <p style={{ fontSize: 11, color: 'rgba(148,163,184,1)', marginTop: 3 }}>students &middot; {FOOTFALL_WEEK.toLocaleString()} this week</p>
             <button onClick={() => navigate('/admin/footfall')} style={{ fontSize: 11, fontWeight: 600, color: '#F97316', background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginTop: 6, display: 'flex', alignItems: 'center', gap: 4 }}>
               View Footfall <ChevronRight size={12} />
             </button>
