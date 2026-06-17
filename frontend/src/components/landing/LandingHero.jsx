@@ -29,34 +29,38 @@ export default function LandingHero({ stats }) {
       <div style={{ position: 'absolute', top: '10%', right: '5%', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '5%', left: '2%', width: 320, height: 320, borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-// Content
-      <div className="relative max-w-5xl mx-auto px-6 lg:px-20 py-24 w-full">
+      {/* Content */}
+      <div className="relative max-w-5xl mx-auto px-6 lg:px-20 py-20 w-full">
 
-        {/* District badge */}
+        {/* District badge — centered on mobile */}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.35)', borderRadius: 99, padding: '6px 18px', marginBottom: 28 }}>
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#F97316', display: 'inline-block', boxShadow: '0 0 8px #F97316' }} />
-          <span style={{ color: '#FB923C', fontSize: 12, fontWeight: 600, letterSpacing: '0.06em' }}>
-            MEDAK DISTRICT EMPLOYMENT, SKILL &amp; INDUSTRY CONNECT
+          className="flex sm:inline-flex"
+          style={{ alignItems: 'center', gap: 8, background: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.35)', borderRadius: 99, padding: '6px 18px', marginBottom: 24, justifyContent: 'center' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#F97316', display: 'inline-block', boxShadow: '0 0 8px #F97316', flexShrink: 0 }} />
+          <span style={{ color: '#FB923C', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textAlign: 'center' }}>
+            MEDAK DISTRICT · EMPLOYMENT, SKILL &amp; INDUSTRY CONNECT
           </span>
         </motion.div>
 
         {/* Main headline */}
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(2.4rem, 5.5vw, 4rem)', fontWeight: 800, color: '#fff', lineHeight: 1.08, letterSpacing: '-0.035em', marginBottom: 22 }}>
+          className="text-center sm:text-left"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(2.4rem, 5.5vw, 4rem)', fontWeight: 800, color: '#fff', lineHeight: 1.08, letterSpacing: '-0.035em', marginBottom: 18 }}>
           Local Talent for<br />
           <span style={{ color: '#F97316' }}>Local Industry</span>
         </motion.h1>
 
-        {/* Sub taglines */}
+        {/* Sub tagline */}
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.22 }}
-          style={{ color: 'rgba(186,215,255,0.82)', fontSize: 'clamp(1rem, 2vw, 1.125rem)', lineHeight: 1.72, maxWidth: 520, marginBottom: 36 }}>
+          className="text-center sm:text-left"
+          style={{ color: 'rgba(186,215,255,0.82)', fontSize: 'clamp(1rem, 2vw, 1.125rem)', lineHeight: 1.72, maxWidth: 520, marginBottom: 32 }}>
           Connecting government ITIs, polytechnics &amp; engineering colleges of Medak district with industry recruiters — structured, auditable &amp; transparent.
         </motion.p>
 
-        {/* Role pills */}
+        {/* Role pills — centered on mobile */}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-          style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 36 }}>
+          style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 32, justifyContent: 'center' }}
+          className="sm:justify-start">
           {ROLE_PILLS.map((r, i) => (
             <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: r.bg, border: `1px solid ${r.border}`, borderRadius: 99, padding: '6px 14px', color: r.color, fontSize: 12, fontWeight: 600 }}>
               <r.icon size={13} /> {r.label}
@@ -84,7 +88,7 @@ export default function LandingHero({ stats }) {
         {/* Stats row */}
         {stats && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
-            className="hero-stats-row" style={{ display: 'flex', marginTop: 60, flexWrap: 'wrap', gap: 0, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 32 }}>
+            className="hero-stats-row" style={{ display: 'flex', marginTop: 56, flexWrap: 'wrap', gap: 0, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 28 }}>
             {stats.map((s, i) => (
               <div key={i} style={{ padding: '0 28px', borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none', textAlign: 'center', minWidth: 100 }}>
                 <p style={{ color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</p>
