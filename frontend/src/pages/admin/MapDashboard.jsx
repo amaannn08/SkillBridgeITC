@@ -37,17 +37,17 @@ export default function MapDashboard() {
 
   return (
     <div className="animate-fade-in">
-      <div className="page-header flex items-start justify-between">
+      <div className="page-header flex flex-col sm:flex-row sm:items-start justify-between gap-3">
         <div>
           <h1 className="page-title flex items-center gap-2">
             <MapPin size={22} className="text-blue-500" /> Medak District — Interactive Map
           </h1>
-          <p className="page-subtitle">Colleges, ITIs, and food factories across Medak & Sangareddy districts</p>
+          <p className="page-subtitle">Colleges, ITIs, and food factories across Medak &amp; Sangareddy districts</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {['all','college','factory'].map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className={`btn btn-sm ${filter === f ? 'btn-primary' : 'btn-outline'}`}>
+              className={`btn btn-sm flex-shrink-0 ${filter === f ? 'btn-primary' : 'btn-outline'}`}>
               {f === 'all' ? 'All' : f === 'college' ? 'Colleges' : 'Factories'}
             </button>
           ))}

@@ -18,7 +18,7 @@ export default function RecruiterDashboard() {
   return (
     <div className="animate-fade-in">
       <div style={{ marginBottom: 28 }}>
-        <div className="flex items-start justify-between" style={{ flexWrap: 'wrap', gap: 12 }}>
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
           <div>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#F97316', background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: 99, padding: '3px 10px' }}>
               MESIC · Industry Recruiter
@@ -26,7 +26,7 @@ export default function RecruiterDashboard() {
             <h1 className="page-title" style={{ marginTop: 8 }}>Welcome back, {currentUser.name.split(' ')[0]} 👋</h1>
             <p className="page-subtitle">{company?.name} · Recruiter Dashboard · Medak District</p>
           </div>
-          <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary">
+          <button onClick={() => navigate('/recruiter/jobs/new')} className="btn btn-primary flex-shrink-0">
             <Plus size={16} /> Post New Job
           </button>
         </div>
