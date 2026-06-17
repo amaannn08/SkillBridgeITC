@@ -76,7 +76,7 @@ export default function Header({ collapsed }) {
               </div>
 
               {/* Sign out */}
-              <button onClick={() => navigate('/login')}
+              <button onClick={() => navigate('/')}
                 className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 transition-colors">
                 <LogOut size={14} /> Sign Out
               </button>

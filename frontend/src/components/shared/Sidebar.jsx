@@ -165,7 +165,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             )}
           </div>
           {!collapsed && (
-            <button onClick={() => navigate('/login')}
+            <button onClick={() => navigate('/')}
               style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(248,113,113,0.85)', fontSize: 12, fontWeight: 600, background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: 8, padding: '6px 10px', cursor: 'pointer', transition: 'background 0.15s' }}
               onMouseEnter={e => e.currentTarget.style.background = 'rgba(239,68,68,0.15)'}
               onMouseLeave={e => e.currentTarget.style.background = 'rgba(239,68,68,0.08)'}>
