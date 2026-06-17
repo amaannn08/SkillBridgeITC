@@ -8,7 +8,6 @@ const REGISTER_OPTIONS = [
     key: 'coordinator',
     Icon: Building2,
     title: 'Faculty Coordinator',
-    titleHi: 'शिक्षण समन्वयक',
     desc: 'Register your government ITI, polytechnic, or engineering college and connect your students to industry.',
     color: '#16A34A',
     bg: 'linear-gradient(135deg, rgba(22,163,74,0.08) 0%, rgba(22,163,74,0.04) 100%)',
@@ -22,7 +21,6 @@ const REGISTER_OPTIONS = [
     key: 'recruiter',
     Icon: Briefcase,
     title: 'Industry Recruiter',
-    titleHi: 'उद्योग भर्ती',
     desc: 'Post job requirements, review talent pools, bulk upload student files and hire from Medak district.',
     color: '#2563EB',
     bg: 'linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(37,99,235,0.04) 100%)',
@@ -36,7 +34,6 @@ const REGISTER_OPTIONS = [
     key: 'student',
     Icon: GraduationCap,
     title: 'Student',
-    titleHi: 'छात्र',
     desc: 'Access the portal via your coordinator. Build your placement profile and track application status.',
     color: '#F97316',
     bg: 'linear-gradient(135deg, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.04) 100%)',
@@ -107,7 +104,6 @@ export default function LandingRegister() {
                 </div>
 
                 {/* Title */}
-                <p style={{ fontSize: 9, fontWeight: 600, color: opt.color, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>{opt.titleHi}</p>
                 <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 17, fontWeight: 800, color: '#fff', letterSpacing: '-0.025em', marginBottom: 10 }}>{opt.title}</h3>
 
                 {/* Desc */}

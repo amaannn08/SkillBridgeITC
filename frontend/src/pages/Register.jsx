@@ -13,7 +13,6 @@ const ROLES = [
     icon:  Building2,
     emoji: '🎓',
     title: 'Faculty Coordinator',
-    hindi: 'संस्था प्रतिनिधि',
     desc:  'Government ITI, Polytechnic, or Engineering College placement officer managing student talent pools',
     color: '#16A34A',
     bg:    'linear-gradient(135deg, #14532D 0%, #166534 100%)',
@@ -25,7 +24,6 @@ const ROLES = [
     icon:  Briefcase,
     emoji: '🏭',
     title: 'Industry Recruiter',
-    hindi: 'उद्योग भर्तीकर्ता',
     desc:  'Company HR or hiring manager posting job requirements and discovering local skilled talent',
     color: '#2563EB',
     bg:    'linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%)',
@@ -37,7 +35,6 @@ const ROLES = [
     icon:  GraduationCap,
     emoji: '👨‍🎓',
     title: 'Student',
-    hindi: 'विद्यार्थी',
     desc:  'ITI or polytechnic student looking for placement opportunities in Medak district industries',
     color: '#9333EA',
     bg:    'linear-gradient(135deg, #581C87 0%, #7E22CE 100%)',
@@ -128,7 +125,7 @@ export default function Register() {
                   <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 28, color: '#0F172A', letterSpacing: '-0.03em', marginBottom: 8 }}>
                     Join MESIC Platform
                   </h1>
-                  <p style={{ color: '#64748B', fontSize: 15 }}>Select your role to begin registration — <em>Apni bhumika chunein</em></p>
+                  <p style={{ color: '#64748B', fontSize: 15 }}>Select your role to begin registration</p>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
@@ -158,8 +155,7 @@ export default function Register() {
                         <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'rgba(255,255,255,0.15)', color: opt.accent, borderRadius: 99, padding: '3px 10px', border: `1px solid ${opt.accent}40` }}>
                           {opt.tag}
                         </span>
-                        <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 18, color: '#fff', marginTop: 10, lineHeight: 1.1 }}>{opt.title}</h3>
-                        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', marginTop: 2, fontStyle: 'italic' }}>{opt.hindi}</p>
+                        <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 18, color: '#fff', marginTop: 10, lineHeight: 1.1, marginBottom: 8 }}>{opt.title}</h3>
                       </div>
 
                       {/* Card bottom — description */}

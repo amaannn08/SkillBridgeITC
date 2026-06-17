@@ -2,10 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Briefcase, GraduationCap } from 'lucide-react';
 
-const TAGLINES = [
-  { hi: 'स्थानीय प्रतिभा', en: 'Local Talent for Local Industry' },
-];
-
 const ROLE_PILLS = [
   { icon: Building2, label: 'Coordinator', color: '#16A34A', bg: 'rgba(22,163,74,0.18)', border: 'rgba(22,163,74,0.3)' },
   { icon: Briefcase,  label: 'Recruiter',  color: '#60a5fa', bg: 'rgba(96,165,250,0.18)', border: 'rgba(96,165,250,0.3)' },
@@ -33,7 +29,7 @@ export default function LandingHero({ stats }) {
       <div style={{ position: 'absolute', top: '10%', right: '5%', width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '5%', left: '2%', width: 320, height: 320, borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-      {/* Content */}
+// Content
       <div className="relative max-w-5xl mx-auto px-6 lg:px-20 py-24 w-full">
 
         {/* District badge */}
@@ -44,12 +40,6 @@ export default function LandingHero({ stats }) {
             MEDAK DISTRICT EMPLOYMENT, SKILL &amp; INDUSTRY CONNECT
           </span>
         </motion.div>
-
-        {/* Hindi tagline */}
-        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.08 }}
-          style={{ color: 'rgba(251,146,60,0.75)', fontSize: 'clamp(1rem, 2vw, 1.2rem)', fontWeight: 600, marginBottom: 10, letterSpacing: '0.04em' }}>
-          स्थानीय प्रतिभा, स्थानीय उद्योग के लिए
-        </motion.p>
 
         {/* Main headline */}
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
