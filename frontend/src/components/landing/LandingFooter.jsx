@@ -37,8 +37,8 @@ export default function LandingFooter() {
             <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>Contact</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { Icon: MapPin, text: 'District Collectorate, Sangareddy, Medak, Telangana' },
-                { Icon: Phone, text: '+91 8455 2-XXXXX' },
+                { Icon: MapPin, text: 'Integrated District Offices Complex (IDOC), Medak District, Telangana.' },
+                { Icon: Phone, text: '08452-223111' },
                 { Icon: Mail,  text: 'mesic@medak.gov.in' },
               ].map(({ Icon, text }, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
